@@ -13,6 +13,7 @@ const bakedGoods = require('./models/bakedgoods.js');
 // =======================================
 //              MIDDLEWARE
 // =======================================
+app.use(express.urlencoded({extended: true}))
 app.use("/static", express.static("public"))
 
 // =======================================
@@ -24,6 +25,17 @@ app.get('/bakedgoods', (req, res) => {
     bakedGoods
   });
 });
+
+// new route
+app.get('/bakedgoods/new', (req, res) => {
+  res.render("new.ejs")
+})
+
+// create route
+app.post('/bakedgoods', (req, res) => {
+  bakedGoods.push(req.body)
+  res.redirect("/bakedgoods")
+})
 
 // show route
 app.get('/bakedgoods/:id', (req, res) => {

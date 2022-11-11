@@ -3,8 +3,11 @@
     <%- include("./partials/head.ejs") %>
 <body>
     <h1>Baked Goods</h1>
+    <nav>
+        <a href="/bakedgoods/new">Create a New Baked Good</a>
+    </nav>
     <ul><% for(let i = 0; i < bakedGoods.length; i++) { %>
-        <li><a href="/bakedGoods/<%= i %>"><%= bakedGoods[i].name %></a> 
+        <li><a href="/bakedgoods/<%= i %>"><%= bakedGoods[i].name %></a> 
             <%= bakedGoods[i].price %></li>
     <% } %>
     </ul>
